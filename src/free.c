@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:05:13 by kvebers           #+#    #+#             */
-/*   Updated: 2023/01/10 15:08:34 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/01/15 13:18:36 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	free_stuff(t_data *data)
 {
+	free(data->stack);
 	free(data->stack1);
 	free(data->stack2);
 	free(data);

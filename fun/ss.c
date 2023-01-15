@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:42:58 by kvebers           #+#    #+#             */
-/*   Updated: 2023/01/10 16:44:03 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/01/15 15:26:54 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ss(t_data *data)
 {
+	if (data->stack1_len < 2 || data->stack2_len < 2)
+		return ;
 	sb(data);
 	sa(data);
 }

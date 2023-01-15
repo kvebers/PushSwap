@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:54:06 by kvebers           #+#    #+#             */
-/*   Updated: 2023/01/10 16:37:48 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/01/15 16:38:21 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,34 +33,35 @@ int	init_arrays(t_data *data)
 	return (1);
 }
 
-void	init_stacks(int argc, char **argv, t_data *data)
+void	init_stacks(t_data *data)
 {
 	int	cnt;
 
 	data->stack1_start = data->malloc_len / 4;
 	data->stack2_start = data->malloc_len / 4 * 3;
 	data->stack2_end = data->stack2_start;
-	data->stack2_len = data->stack2_start - data->stack2_end;
+	data->stack2_len = data->stack2_end - data->stack2_start;
 	data->stack1_end = data->stack1_start;
-	cnt = 1;
-	while (cnt < argc)
+	data->x = 1;
+	data->split_val = 0;
+	cnt = 0;
+	while (cnt < data->argc)
 	{
-		data->stack1[data->stack1_end] = ft_atoi(argv[cnt]);
+		data->stack1[data->stack1_end] = data->stack[cnt];
 		data->stack1_end++;
 		cnt++;
 	}
-	data->stack1_len = data->stack1_start - data->stack1_end;
+	data->stack1_len = data->stack1_end - data->stack1_start;
 }
 
-int	init_data(int argc, char **argv, t_data *data)
+int	init_data(t_data *data)
 {
-	data->argc = argc - 1;
 	data->malloc_len = data->argc * 2;
 	if (init_arrays(data) == 0)
 	{
 		ft_printf("Allocation failed");
 		return (0);
 	}
-	init_stacks(argc, argv, data);
+	init_stacks(data);
 	return (1);
 }

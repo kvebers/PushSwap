@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 18:02:36 by kvebers           #+#    #+#             */
-/*   Updated: 2023/01/10 17:54:06 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/01/15 16:45:15 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,12 @@
 
 typedef struct data
 {
+	int	x;
+	int max_it;
+	int	split_val;
+	int	median;
 	int	argc;
+	int	*stack;
 	int	*stack1;
 	int	*stack2;
 	int	stack1_len;
@@ -31,15 +36,18 @@ typedef struct data
 }	t_data;
 
 //protection.c
-int		protection4(int argc);
+int		protection4(t_data *data);
 int		protection3(int bonus, char *argv);
-int		protection2(int argc, char **argv);
-int		protection1(int argc, char **argv);
-int		protection(int argc, char **argv);
-int		init_data(int argc, char **argv, t_data *data);
+int		protection2(char *argv);
+int		protection1(int argc, char **argv, int cnt, int c);
+int		protection(int argc, char **argv, t_data *data);
 //protection1.c
-int		protection6(int *stack, int argc);
-int		protection5(int argc, char **argv);
+int		protection5(t_data *data, char **argv, int argc, int cnt);
+int		protection6(t_data *data, char **argv, int argc, int cnt);
+int		protection8(t_data *data);
+
+//init_data.c
+int		init_data(t_data *data);
 //free.c
 void	free_stuff(t_data *data);
 //sort.c
