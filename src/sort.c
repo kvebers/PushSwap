@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:25:13 by kvebers           #+#    #+#             */
-/*   Updated: 2023/01/15 16:55:12 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/01/16 14:50:30 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,35 +53,42 @@ int	check_sort(t_data *data)
 void	calculate_x(t_data *data)
 {
 	int	temp;
-	int temp1;
-	int constant;
+	int	temp1;
+	int	constant;
+	int	constant1;
 
-	constant = (data->argc + data->argc/data->x) / 2 * data->x;
-	temp1 = (data->x * (1 + data->argc / (2 * data->x))) / 4 + constant;
+	constant = data->argc / (data->x * 2);
+	constant1 = data->argc * data->x / 2;
+	temp1 = data->x * (1 + constant) * constant / 4 + constant1;
 	data->x++;
 	while (data->x < data->argc)
 	{
-		constant = (data->argc + data->argc/data->x) / 2 * data->x;
-		temp = (data->x * (1 + data->argc / (2 * data->x))) / 4 + constant;
-		ft_printf("Temp: %i\n", temp);
+		constant = data->argc / (data->x * 2);
+		constant1 = data->argc * data->x / 2;
+		temp = data->x * (1 + constant) * constant / 4 + constant1;
 		if (temp1 > temp)
-			temp = temp1;
+			temp1 = temp;
 		else
 		{
-			ft_printf("Temp: %i\n", temp);
-			ft_printf("Temp1: %i\n", temp1);
 			data->x--;
 			data->max_it = temp1;
-			break;
+			break ;
 		}
 		data->x++;
 	}
 }
 
+void	calculate_segment_width(t_data *data)
+{
+	data->seg_width = data->argc / data->x;
+	ft_printf("\nThere are %i elements in segment\n", data->seg_width);
+	ft_printf("There are %i segments\n", data->x);
+}
+
 void	start_sort(t_data *data)
 {
 	calculate_x(data);
-	ft_printf("%i %i\n\n\n\n", data->x, data->argc);
+	calculate_segment_width(data);
 	while (check_sort(data) == 0)
 	{
 		if (data->step == 10)

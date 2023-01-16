@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 18:02:36 by kvebers           #+#    #+#             */
-/*   Updated: 2023/01/15 16:45:15 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/01/16 14:18:58 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 typedef struct data
 {
 	int	x;
-	int max_it;
+	int	seg_width;
+	int	max_it;
 	int	split_val;
 	int	median;
 	int	argc;
