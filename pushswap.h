@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 18:02:36 by kvebers           #+#    #+#             */
-/*   Updated: 2023/01/16 14:18:58 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/01/17 16:31:29 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 typedef struct data
 {
 	int	x;
+	int direction;
+	int	seg_proc;
+	int	x_done;
 	int	seg_width;
 	int	max_it;
 	int	split_val;
@@ -53,7 +56,11 @@ int		init_data(t_data *data);
 void	free_stuff(t_data *data);
 //sort.c
 void	start_sort(t_data *data);
+//sort_utils.c
 int		check_sort(t_data *data);
+void	calculate_segment_width(t_data *data);
+void	calculate_x(t_data *data);
+void	ft_print_stacks(t_data *data);
 //fun folder
 void	sa(t_data *data);
 void	sb(t_data *data);

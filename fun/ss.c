@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:42:58 by kvebers           #+#    #+#             */
-/*   Updated: 2023/01/15 15:26:54 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/01/17 17:26:23 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,5 @@ void	ss(t_data *data)
 		return ;
 	sb(data);
 	sa(data);
+	ft_printf("ss");
 }

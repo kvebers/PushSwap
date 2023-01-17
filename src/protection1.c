@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:33:53 by kvebers           #+#    #+#             */
-/*   Updated: 2023/01/15 14:34:10 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/01/17 13:02:42 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ int	protection8(t_data *data)
 		{
 			if (data->stack[cnt2] == data->stack[cnt1])
 			{
-				ft_printf("Error: 2 of the same element in the array");
+				ft_printf("Error: 2 of the same element in the array\n");
 				return (0);
 			}
 			cnt2++;

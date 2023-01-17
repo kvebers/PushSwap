@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:31:32 by kvebers           #+#    #+#             */
-/*   Updated: 2023/01/10 16:49:59 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/01/17 17:25:32 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,5 @@ void	pa(t_data *data)
 	data->stack2_start++;
 	data->stack1_len++;
 	data->stack2_len--;
+	ft_printf("pa");
 }
