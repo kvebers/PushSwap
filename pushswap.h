@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 18:02:36 by kvebers           #+#    #+#             */
-/*   Updated: 2023/01/17 16:31:29 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/01/18 14:46:23 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 typedef struct data
 {
+	int swap;
 	int	x;
 	int direction;
 	int	seg_proc;
@@ -49,7 +50,6 @@ int		protection(int argc, char **argv, t_data *data);
 int		protection5(t_data *data, char **argv, int argc, int cnt);
 int		protection6(t_data *data, char **argv, int argc, int cnt);
 int		protection8(t_data *data);
-
 //init_data.c
 int		init_data(t_data *data);
 //free.c
@@ -73,5 +73,6 @@ void	rra(t_data *data);
 void	rrb(t_data *data);
 void	rrr(t_data *data);
 void	rr(t_data *data);
-
+//fix.c
+void	array_fixer1(t_data *data);
 #endif

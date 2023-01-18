@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:23:54 by kvebers           #+#    #+#             */
-/*   Updated: 2023/01/17 13:02:21 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/01/18 13:05:24 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ int	main(int argc, char **argv)
 	else
 		ft_printf("Error: Array is sorted\n");
 	free_stuff(data);
-	system("leaks pushswap");
+	// system("leaks pushswap");
 	return (0);
 }

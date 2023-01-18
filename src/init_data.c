@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:54:06 by kvebers           #+#    #+#             */
-/*   Updated: 2023/01/15 16:38:21 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/01/18 14:46:58 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	init_stacks(t_data *data)
 	data->stack2_len = data->stack2_end - data->stack2_start;
 	data->stack1_end = data->stack1_start;
 	data->x = 1;
+	data->swap = 0;
 	data->split_val = 0;
 	cnt = 0;
 	while (cnt < data->argc)

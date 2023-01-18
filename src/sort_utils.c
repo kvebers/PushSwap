@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:08:29 by kvebers           #+#    #+#             */
-/*   Updated: 2023/01/17 17:46:51 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/01/18 16:29:44 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ void	ft_print_stacks(t_data *data)
 	cnt = 0;
 	while (cnt < data->malloc_len)
 	{
-		ft_printf("%i", data->stack1[cnt]);
+		ft_printf("%i,", data->stack1[cnt]);
 		cnt++;
 	}
 	ft_printf(" ");
 	cnt = 0;
 	while (cnt < data->malloc_len)
 	{
-		ft_printf("%i", data->stack2[cnt]);
+		ft_printf("%i,", data->stack2[cnt]);
 		cnt++;
 	}
 	ft_printf("\n");

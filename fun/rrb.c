@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:50:55 by kvebers           #+#    #+#             */
-/*   Updated: 2023/01/17 17:25:59 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/01/18 13:17:02 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ void	rrb(t_data *data)
 	data->stack2[data->stack2_end - 1] = 0;
 	data->stack2_start--;
 	data->stack2_end--;
-	ft_printf("rrb");
+	ft_printf("rrb\n");
 }
