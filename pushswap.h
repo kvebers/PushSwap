@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 18:02:36 by kvebers           #+#    #+#             */
-/*   Updated: 2023/01/18 14:46:23 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/01/23 13:53:24 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,11 @@
 
 typedef struct data
 {
-	int swap;
-	int	x;
-	int direction;
-	int	seg_proc;
-	int	x_done;
+	int offset;
 	int	seg_width;
-	int	max_it;
-	int	split_val;
 	int	median;
+	int	median1;
+	int	median2;
 	int	argc;
 	int	*stack;
 	int	*stack1;
@@ -37,7 +33,6 @@ typedef struct data
 	int	stack1_end;
 	int	stack2_end;
 	int	malloc_len;
-	int	step;
 }	t_data;
 
 //protection.c
@@ -52,14 +47,13 @@ int		protection6(t_data *data, char **argv, int argc, int cnt);
 int		protection8(t_data *data);
 //init_data.c
 int		init_data(t_data *data);
+int		init_medians(t_data *data);
 //free.c
 void	free_stuff(t_data *data);
 //sort.c
 void	start_sort(t_data *data);
 //sort_utils.c
 int		check_sort(t_data *data);
-void	calculate_segment_width(t_data *data);
-void	calculate_x(t_data *data);
 void	ft_print_stacks(t_data *data);
 //fun folder
 void	sa(t_data *data);
@@ -75,4 +69,9 @@ void	rrr(t_data *data);
 void	rr(t_data *data);
 //fix.c
 void	array_fixer1(t_data *data);
+void	array_fixer2(t_data *data);
+void	array_fixer3(t_data *data);
+void	array_fixer4(t_data *data);
+//sort1.c
+// void	quick_sort_b(t_data *data);
 #endif

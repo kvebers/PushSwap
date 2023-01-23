@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:08:29 by kvebers           #+#    #+#             */
-/*   Updated: 2023/01/18 16:29:44 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/01/20 12:09:42 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,40 +52,4 @@ int	check_sort(t_data *data)
 		cnt++;
 	}
 	return (1);
-}
-
-void	calculate_x(t_data *data)
-{
-	int	temp;
-	int	temp1;
-	int	constant;
-	int	constant1;
-
-	constant = data->argc / (data->x * 2);
-	constant1 = data->argc * data->x / 2;
-	temp1 = data->x * (1 + constant) * constant / 4 + constant1;
-	data->x++;
-	while (data->x < data->argc)
-	{
-		constant = data->argc / (data->x * 2);
-		constant1 = data->argc * data->x / 2;
-		temp = data->x * (1 + constant) * constant / 4 + constant1;
-		if (temp1 > temp)
-			temp1 = temp;
-		else
-		{
-			data->x--;
-			data->max_it = temp1;
-			break ;
-		}
-		data->x++;
-	}
-}
-
-void	calculate_segment_width(t_data *data)
-{
-	data->seg_width = data->argc / data->x;
-	data->x_done = 0;
-	data->seg_proc = 0;
-	data->direction = 0;
 }

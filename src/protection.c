@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 18:34:15 by kvebers           #+#    #+#             */
-/*   Updated: 2023/01/17 13:03:06 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/01/20 15:21:59 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	protection4(t_data *data)
 {
-	if (data->argc > 2147483647 / 2)
+	if (data->argc > 2147483647 / 4)
 	{
 		ft_printf("Error: This algo is not ment for handling so many inputs\n");
 		return (0);

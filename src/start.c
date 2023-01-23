@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:23:54 by kvebers           #+#    #+#             */
-/*   Updated: 2023/01/18 13:05:24 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/01/23 12:04:40 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int	main(int argc, char **argv)
 	if (protection8(data) == 0)
 		return (free(data->stack), free(data), 0);
 	if (init_data(data) == 0)
-		return (free(data), 0);
-	if	(check_sort(data) == 0)
+		return (free(data), free(data->stack), 0);
+	if (check_sort(data) == 0)
 		start_sort(data);
 	else
 		ft_printf("Error: Array is sorted\n");

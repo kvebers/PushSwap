@@ -6,137 +6,114 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:25:13 by kvebers           #+#    #+#             */
-/*   Updated: 2023/01/18 17:09:55 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/01/23 17:18:11 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
 
-void	push_median(t_data *data)
+void	quick_sort_a1(t_data *data)
 {
-	int	cnt;
-	int	cnt1;
-	int	sum;
-
-	cnt = data->stack1_start;
-	cnt1 = data->stack1_start;
-	sum = 0;
-	while (cnt < data->stack1_end)
-	{
-		if (data->stack1[cnt1] > data->stack1[cnt])
-			sum++;
-		cnt++;
-	}
-	if (sum >= data->argc - data->seg_width * (data->x_done + 1))
+	if (data->stack1[data->stack1_start] >= data->median)
+		pb(data);
+	else if (data->stack1[data->stack1_start] < data->median)
 	{
 		pb(data);
-		data->seg_proc++;
+		rb(data);
 	}
-	else if (data->direction == 0)
+}
+
+int	check_medians(t_data *data)
+{
+	int	cnt;
+
+	cnt = data->stack1_start;
+	while (cnt < data->stack1_end)
+	{
+		if (data->stack1[cnt] > data->median1
+			&& data->stack1[cnt] <= data->median2)
+			return (0);
+		cnt++;
+	}
+	return (1);
+}
+
+void	quick_sort_a(t_data *data)
+{
+	if (data->stack1[data->stack1_start] >= data->median
+		&& data->stack1[data->stack1_start] <= data->median2)
+		pb(data);
+	else if (data->stack1[data->stack1_start] <= data->median
+		&& data->stack1[data->stack1_start] > data->median1)
+	{
+		pb(data);
+		rb(data);
+	}
+	else if (check_medians(data) == 1)
+		quick_sort_a1(data);
+	else
 		ra(data);
 }
 
-void	push_median1(t_data *data)
+void	calculate_median(t_data *data)
 {
-	int	cnt;
-	int	cnt1;
-	int	sum;
-
-	cnt = data->stack1_start;
-	cnt1 = data->stack1_start;
-	sum = 0;
-	while (cnt < data->stack1_end)
-	{
-		if (data->stack1[cnt1] > data->stack1[cnt])
-			sum++;
-		cnt++;
-	}
-	if (sum <= data->seg_width * (data->x_done + 2))
-	{
-		pb(data);
-		data->seg_proc++;
-	}
-	else if (data->direction == 1)
-		rra(data);
+	data->median = data->seg_width / 2;
+	data->median1 = data->seg_width / 4;
+	data->median2 = data->seg_width * 3 / 4;
 }
 
-void	update_stuff(t_data *data)
+void	quick_sort_b(t_data *data, int offset)
 {
-	if (data->direction == 0)
-		data->direction = 1;
-	else if (data->direction == 1)
-	{
-		data->direction = 0;
-		data->x_done++;
-	}
-	data->seg_proc = 0;
-	if (data->x - data->x_done == 1)
-		data->seg_width = data->argc
-			- data->x_done * data->seg_width;
-}
-
-void	rev_push_utils(t_data *data, int temp, int temp1)
-{
-	if (temp1 == temp)
-	{
+	if (data->stack2[data->stack2_start] >= offset + data->median && data->stack2[data->stack2_start] < offset + data->median1 + data->median)
+	{	
 		pa(data);
-		if (data->swap == 1)
-		{
-			sa(data);
-			data->swap = 0;
-		}
+		ra(data);
 	}
-	else if (temp >= data->stack2_len / 2 + data->stack2_start)
-		rrb(data);
-	else if (temp < data->stack2_len / 2 + data->stack2_start)
+	else if (data->stack2[data->stack2_start] >= data->median1 + offset && data->stack2[data->stack2_start] <= offset + data->median)
+		pa(data);
+	else
 		rb(data);
-	else if (temp1 == data->stack2_start && data->swap == 0)
+}
+
+void	quick_sort_b1(t_data *data, int offset)
+{
+	if (data->stack2[data->stack2_start] <= offset + data->median && data->stack2[data->stack2_start] > offset)
+	{	
+		pa(data);
+		rrb(data);
+	}
+	else if (data->stack2[data->stack2_start] >= offset + data->median)
 	{
 		pa(data);
-		data->swap = 1;
+		rrb(data);
+		ra(data);
 	}
-}
-
-void	rev_push_seg(t_data *data)
-{
-	int	cnt;
-	int	temp;
-	int	temp1;
-
-	temp1 = data->stack2_start;
-	temp = data->stack2_start;
-	cnt = data->stack2_start;
-	while (cnt < data->stack2_end)
-	{
-		if (data->stack2[temp] < data->stack2[cnt])
-		{
-			temp1 = temp;
-			temp = cnt;
-		}
-		cnt++;
-	}
-	rev_push_utils(data, temp, temp1);
-}
-
-void	sorting(t_data *data)
-{
-	while (data->seg_proc != data->seg_width && data->direction == 0)
-		push_median(data);
-	while (data->seg_proc != data->seg_width && data->direction == 1)
-		push_median1(data);
-	while (data->stack2_len != 0 && data->direction == 0)
-		rev_push_seg(data);
-	while (data->stack2_len != 0 && data->direction == 1)
-		rev_push_seg(data);
-	if (data->seg_proc == data->seg_width)
-		update_stuff(data);
+	else
+		rrb(data);
 }
 
 void	start_sort(t_data *data)
 {
-	calculate_x(data);
-	calculate_segment_width(data);
-	sorting(data);
-	sorting(data);
-	sorting(data);
+	int	cnt;
+
+	while (data->stack1_len > 0)
+		quick_sort_a(data);
+	cnt = 1;
+	while (cnt < 2)
+	{
+		if (cnt > 1)
+			data->seg_width = data->seg_width * 4;
+		calculate_median(data);
+		while (data->stack2[data->stack2_start] > data->argc
+			- data->seg_width * (cnt))
+			quick_sort_b(data, data->argc - data->seg_width * cnt);
+			rrb(data);
+		while (data->stack2[data->stack2_start] > data->argc
+			- data->seg_width * (cnt))
+			quick_sort_b1(data, data->argc - data->seg_width * cnt);
+		rb(data);
+		data->seg_width = data->seg_width / 4;
+		calculate_median(data);
+		cnt++;
+	}
 }

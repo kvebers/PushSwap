@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:50:55 by kvebers           #+#    #+#             */
-/*   Updated: 2023/01/18 13:17:02 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/01/20 13:49:00 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,6 @@ void	rrb(t_data *data)
 	data->stack2_start--;
 	data->stack2_end--;
 	ft_printf("rrb\n");
+	if (data->stack2_start == 1)
+		array_fixer3(data);
 }

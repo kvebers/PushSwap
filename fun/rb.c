@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:32:02 by kvebers           #+#    #+#             */
-/*   Updated: 2023/01/18 13:16:53 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/01/20 13:33:33 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ void	rb(t_data *data)
 	data->stack2_start++;
 	data->stack2_end++;
 	ft_printf("rb\n");
+	if (data->stack1_end == data->malloc_len -1)
+		array_fixer1(data);
 }
-
