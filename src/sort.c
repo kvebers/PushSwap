@@ -6,54 +6,11 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:25:13 by kvebers           #+#    #+#             */
-/*   Updated: 2023/01/23 17:18:11 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/01/24 16:07:03 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
-
-void	quick_sort_a1(t_data *data)
-{
-	if (data->stack1[data->stack1_start] >= data->median)
-		pb(data);
-	else if (data->stack1[data->stack1_start] < data->median)
-	{
-		pb(data);
-		rb(data);
-	}
-}
-
-int	check_medians(t_data *data)
-{
-	int	cnt;
-
-	cnt = data->stack1_start;
-	while (cnt < data->stack1_end)
-	{
-		if (data->stack1[cnt] > data->median1
-			&& data->stack1[cnt] <= data->median2)
-			return (0);
-		cnt++;
-	}
-	return (1);
-}
-
-void	quick_sort_a(t_data *data)
-{
-	if (data->stack1[data->stack1_start] >= data->median
-		&& data->stack1[data->stack1_start] <= data->median2)
-		pb(data);
-	else if (data->stack1[data->stack1_start] <= data->median
-		&& data->stack1[data->stack1_start] > data->median1)
-	{
-		pb(data);
-		rb(data);
-	}
-	else if (check_medians(data) == 1)
-		quick_sort_a1(data);
-	else
-		ra(data);
-}
 
 void	calculate_median(t_data *data)
 {
@@ -62,34 +19,38 @@ void	calculate_median(t_data *data)
 	data->median2 = data->seg_width * 3 / 4;
 }
 
-void	quick_sort_b(t_data *data, int offset)
+void	sort_sub_a(t_data *data, int offset)
 {
-	if (data->stack2[data->stack2_start] >= offset + data->median && data->stack2[data->stack2_start] < offset + data->median1 + data->median)
-	{	
-		pa(data);
-		ra(data);
-	}
-	else if (data->stack2[data->stack2_start] >= data->median1 + offset && data->stack2[data->stack2_start] <= offset + data->median)
-		pa(data);
-	else
-		rb(data);
-}
+	int	cnt;
 
-void	quick_sort_b1(t_data *data, int offset)
-{
-	if (data->stack2[data->stack2_start] <= offset + data->median && data->stack2[data->stack2_start] > offset)
-	{	
-		pa(data);
-		rrb(data);
-	}
-	else if (data->stack2[data->stack2_start] >= offset + data->median)
+	data->seg_width = data->seg_width / 4;
+	calculate_median(data);
+	cnt = 3;
+	if (offset == data->argc / 4)
+		offset = 0;
+	while (data->stack1_len > 0)
 	{
-		pa(data);
-		rrb(data);
-		ra(data);
+		while (data->stack1[data->stack1_start] > data->argc
+				- (4 - cnt) * data->seg_width)
+		{
+			if (data->stack1[data->stack1_start] > data->argc
+				- (4 - cnt) * data->seg_width + data->median - offset)
+			{
+				pb(data);
+				rb(data);
+			}
+			else if (data->stack1[data->stack1_start] < data->argc
+				- (4 - cnt) * data->seg_width + data->median - offset
+				&& data->stack1[data->stack1_start] > data->argc
+				- (4 - cnt) * data->seg_width - offset)
+				pb(data);
+			else
+				ra(data);
+		}
+		while (data)
+		
+		cnt--;
 	}
-	else
-		rrb(data);
 }
 
 void	start_sort(t_data *data)
@@ -99,7 +60,7 @@ void	start_sort(t_data *data)
 	while (data->stack1_len > 0)
 		quick_sort_a(data);
 	cnt = 1;
-	while (cnt < 2)
+	while (cnt < 3)
 	{
 		if (cnt > 1)
 			data->seg_width = data->seg_width * 4;
@@ -107,13 +68,12 @@ void	start_sort(t_data *data)
 		while (data->stack2[data->stack2_start] > data->argc
 			- data->seg_width * (cnt))
 			quick_sort_b(data, data->argc - data->seg_width * cnt);
-			rrb(data);
+		rrb(data);
 		while (data->stack2[data->stack2_start] > data->argc
 			- data->seg_width * (cnt))
 			quick_sort_b1(data, data->argc - data->seg_width * cnt);
 		rb(data);
-		data->seg_width = data->seg_width / 4;
-		calculate_median(data);
+		sort_sub_a(data, data->seg_width * cnt);
 		cnt++;
 	}
 }

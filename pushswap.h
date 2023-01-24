@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 18:02:36 by kvebers           #+#    #+#             */
-/*   Updated: 2023/01/23 13:53:24 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/01/24 10:05:18 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,10 @@ void	array_fixer2(t_data *data);
 void	array_fixer3(t_data *data);
 void	array_fixer4(t_data *data);
 //sort1.c
-// void	quick_sort_b(t_data *data);
+void	quick_sort_b(t_data *data, int offset);
+void	quick_sort_b1(t_data *data, int offset);
+void	quick_sort_a(t_data *data);
+int		check_medians(t_data *data);
+void	quick_sort_a1(t_data *data);
+
 #endif
