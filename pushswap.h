@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 18:02:36 by kvebers           #+#    #+#             */
-/*   Updated: 2023/02/05 14:32:03 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/02/05 17:47:52 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 typedef struct data
 {
-	int offset;
+	int	offset;
 	int	seg_width;
 	int	median;
 	int	median1;
@@ -52,6 +52,7 @@ int		init_medians(t_data *data);
 void	free_stuff(t_data *data);
 //sort.c
 void	start_sort(t_data *data);
+void	start_sort1(t_data *data);
 //sort_utils.c
 int		check_sort(t_data *data);
 void	ft_print_stacks(t_data *data);

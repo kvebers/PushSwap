@@ -6,32 +6,11 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:25:13 by kvebers           #+#    #+#             */
-/*   Updated: 2023/02/05 17:17:28 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/02/05 17:48:44 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
-
-// void	switch_form(t_data *data)
-// {
-// 	int	range;
-
-// 	range = data->argc / 100;
-// 	while (data->stack1_len > 0)
-// 	{
-// 		if (data->stack1[data->stack1_start] < range)
-// 		{
-// 			range++;
-// 			pb(data);
-// 			rb(data);
-// 		}
-// 		else
-// 		{
-// 			range++;
-// 			pb(data);
-// 		}
-// 	}
-// }
 
 void	switch_form(t_data *data)
 {
@@ -118,6 +97,14 @@ void	start_sort(t_data *data)
 	while (data->stack1[data->stack1_end - 1] < data->median2 + data->argc / 8)
 		rra(data);
 	switch_form(data);
+	while (data->stack2_len > 0)
+		push_to_sort(data);
+}
+
+void	start_sort1(t_data *data)
+{
+	while (data->stack1_len > 0)
+		quick_sort_a(data);
 	while (data->stack2_len > 0)
 		push_to_sort(data);
 }

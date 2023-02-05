@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:23:54 by kvebers           #+#    #+#             */
-/*   Updated: 2023/01/23 12:04:40 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/02/05 17:47:00 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,12 @@ int	main(int argc, char **argv)
 		return (free(data->stack), free(data), 0);
 	if (init_data(data) == 0)
 		return (free(data), free(data->stack), 0);
-	if (check_sort(data) == 0)
+	if (check_sort(data) == 0 && data->argc > 200)
 		start_sort(data);
+	else if (check_sort(data) == 0 && data->argc <= 200)
+		start_sort1(data);
 	else
 		ft_printf("Error: Array is sorted\n");
 	free_stuff(data);
-	// system("leaks pushswap");
 	return (0);
 }
