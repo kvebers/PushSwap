@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 12:07:24 by kvebers           #+#    #+#             */
-/*   Updated: 2023/01/25 13:20:46 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/02/05 11:30:20 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,43 +53,4 @@ void	quick_sort_a(t_data *data)
 		quick_sort_a1(data);
 	else
 		ra(data);
-}
-
-void	sort_segment_b_a(t_data *data, int median)
-{
-	if (data->stack2[data->stack2_start] >= median
-		+ data->argc / 8 && data->stack2[data->stack2_start]
-		<= median + data->argc / 16 * 3)
-		pa(data);
-	else if (data->stack2[data->stack2_start] > median + data->argc / 16
-		&& data->stack2[data->stack2_start] <= median + data->argc / 8)
-	{
-		pa(data);
-		ra(data);
-	}
-	else
-		rb(data);
-}
-
-void	sort_segment_b_a1(t_data *data, int median)
-{
-	if (data->stack2[data->stack2_end - 1] > median + data->argc / 8
-		&& data->stack2[data->stack2_end - 1]
-		<= median + data->argc / 4)
-	{
-		rrb(data);
-		pa(data);
-	}
-	else if (data->stack2[data->stack2_end - 1] >= median
-		&& data->stack2[data->stack2_end - 1] <= median + data->argc / 8)
-	{
-		rrb(data);
-		pa(data);
-		ra(data);
-	}
-	else
-	{
-		rrb(data);
-		pa(data);
-	}
 }

@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 18:02:36 by kvebers           #+#    #+#             */
-/*   Updated: 2023/01/25 13:21:17 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/02/05 14:32:03 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,9 @@ void	array_fixer4(t_data *data);
 void	quick_sort_a(t_data *data);
 int		check_medians(t_data *data);
 void	quick_sort_a1(t_data *data);
-void	sort_segment_b_a1(t_data *data, int median);
-void	sort_segment_b_a(t_data *data, int median);
-
+//sort2.c
+void	loop_sort(t_data *data, int median);
+void	quick_sort_b2(t_data *data, int median);
+void	quick_sort_b1(t_data *data, int median);
+void	quick_sort_b(t_data *data, int median);
 #endif
