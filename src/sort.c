@@ -6,29 +6,51 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:25:13 by kvebers           #+#    #+#             */
-/*   Updated: 2023/02/05 16:56:04 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/02/05 17:17:28 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
 
+// void	switch_form(t_data *data)
+// {
+// 	int	range;
+
+// 	range = data->argc / 100;
+// 	while (data->stack1_len > 0)
+// 	{
+// 		if (data->stack1[data->stack1_start] < range)
+// 		{
+// 			range++;
+// 			pb(data);
+// 			rb(data);
+// 		}
+// 		else
+// 		{
+// 			range++;
+// 			pb(data);
+// 		}
+// 	}
+// }
+
 void	switch_form(t_data *data)
 {
-	int	range;
+	int	border;
 
-	range = data->argc / 100;
+	border = data->argc / 15;
 	while (data->stack1_len > 0)
 	{
-		if (data->stack1[data->stack1_start] < range)
+		border = border + data->argc / 16;
+		while (data->stack1[data->stack1_start] < border
+			&& data->stack1_len != 0)
 		{
-			range++;
-			pb(data);
-			rb(data);
-		}
-		else
-		{
-			range++;
-			pb(data);
+			if (data->stack1[data->stack1_start] < border - data->argc / 32)
+				pb(data);
+			else
+			{
+				pb(data);
+				rb(data);
+			}
 		}
 	}
 }
