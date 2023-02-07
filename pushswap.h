@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 18:02:36 by kvebers           #+#    #+#             */
-/*   Updated: 2023/02/05 17:47:52 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/02/06 17:43:55 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	free_stuff(t_data *data);
 //sort.c
 void	start_sort(t_data *data);
 void	start_sort1(t_data *data);
+void	push_to_sort(t_data *data);
 //sort_utils.c
 int		check_sort(t_data *data);
 void	ft_print_stacks(t_data *data);
@@ -82,4 +83,6 @@ void	loop_sort(t_data *data, int median);
 void	quick_sort_b2(t_data *data, int median);
 void	quick_sort_b1(t_data *data, int median);
 void	quick_sort_b(t_data *data, int median);
+//sort3.c
+void	start_sort2(t_data *data);
 #endif
