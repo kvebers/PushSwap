@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 16:43:26 by kvebers           #+#    #+#             */
-/*   Updated: 2023/02/09 15:47:02 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/02/10 16:15:14 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	start_sort2(t_data *data)
 	int	range;
 	int	cnt;
 
-	range = ft_sqrt(data->argc) * 15 / 10;
+	range = ft_sqrt(data->argc) * 3 / 2;
 	cnt = 1;
 	while (data->stack1_len > 0)
 	{
