@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:54:06 by kvebers           #+#    #+#             */
-/*   Updated: 2023/01/23 16:31:10 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/02/10 15:49:13 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int	init_data(t_data *data)
 	data->malloc_len = data->argc * 4;
 	if (transform_stack(data) == 0 || init_arrays(data) == 0)
 	{
-		ft_printf("Allocation failed");
+		ft_printf("Error");
 		return (0);
 	}
 	init_stacks(data);

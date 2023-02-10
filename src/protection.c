@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 18:34:15 by kvebers           #+#    #+#             */
-/*   Updated: 2023/01/20 15:21:59 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/02/10 15:57:17 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	protection4(t_data *data)
 {
-	if (data->argc > 2147483647 / 4)
+	if (data->argc > 2147483647 / 6)
 	{
-		ft_printf("Error: This algo is not ment for handling so many inputs\n");
+		ft_printf("Error\n");
 		return (0);
 	}
 	return (1);
@@ -80,7 +80,7 @@ int	protection1(int argc, char **argv, int cnt, int c)
 			}
 			else if (ft_isdigit(*(argv[cnt] + c)) == 0)
 			{
-				ft_printf("Error: There is a non digit in the function args\n");
+				ft_printf("Error\n");
 				return (0);
 			}
 			c++;
@@ -95,12 +95,12 @@ int	protection(int argc, char **argv, t_data *data)
 	data->argc = 0;
 	if (argc == 1)
 	{
-		ft_printf("Error: There are no arguments passed\n");
+		ft_printf("Error\n");
 		return (0);
 	}
 	if (protection1(argc, argv, 1, 0) == 0)
 	{
-		ft_printf("Error: not allowed chars in input\n");
+		ft_printf("Errorn");
 		return (0);
 	}
 	if (protection5(data, argv, argc, 1) == 0)
@@ -109,7 +109,7 @@ int	protection(int argc, char **argv, t_data *data)
 		return (0);
 	if (protection6(data, argv, argc, 1) == 0)
 	{
-		ft_printf("Error: Atoi or Malloc or smt else\n");
+		ft_printf("Error\n");
 		return (free(data->stack), 0);
 	}
 	return (1);

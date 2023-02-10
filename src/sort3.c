@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 16:43:26 by kvebers           #+#    #+#             */
-/*   Updated: 2023/02/07 16:14:51 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/02/09 15:47:02 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,3 @@ void	start_sort2(t_data *data)
 	while (data->stack2_len > 0)
 		push_to_sort(data);
 }
-
