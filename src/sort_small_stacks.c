@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 17:17:23 by kvebers           #+#    #+#             */
-/*   Updated: 2023/02/10 13:51:52 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/02/10 16:04:40 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,6 @@ void	stack_size_45_handle(t_data *data)
 	}
 	if (data->stack1[data->stack1_start] > data->stack1[data->stack1_start + 1])
 		sa(data);
-	while (data->stack2_len > 0)	
+	while (data->stack2_len > 0)
 		decision(data, data->stack2_start);
 }
