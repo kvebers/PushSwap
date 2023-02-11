@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:23:54 by kvebers           #+#    #+#             */
-/*   Updated: 2023/02/10 14:47:39 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/02/11 21:53:44 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 		return (0);
 	if (protection(argc, argv, data) == 0)
 		return (free(data), 0);
-	if (protection8(data) == 0)
+	if (prot_sorted(data) == 0)
 		return (free(data->stack), free(data), 0);
 	if (init_data(data) == 0)
 		return (free(data), free(data->stack), 0);

@@ -6,13 +6,17 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 18:34:15 by kvebers           #+#    #+#             */
-/*   Updated: 2023/02/10 15:57:17 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/02/11 19:39:49 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
 
-int	protection4(t_data *data)
+/*
+Handles the maximum array capacity
+*/
+
+int	prot_max_size(t_data *data)
 {
 	if (data->argc > 2147483647 / 6)
 	{
@@ -22,7 +26,7 @@ int	protection4(t_data *data)
 	return (1);
 }
 
-int	protection3(int bonus, char *argv)
+int	prot_atoi1(int bonus, char *argv)
 {
 	int		cnt;
 	char	*max;
@@ -43,7 +47,7 @@ int	protection3(int bonus, char *argv)
 	return (free(max), 1);
 }
 
-int	protection2(char *argv)
+int	prot_atoi(char *argv)
 {
 	int	len;
 
@@ -54,18 +58,18 @@ int	protection2(char *argv)
 		return (0);
 	if (argv[0] == '-' && len == 11)
 	{
-		if (protection3(1, argv) == 0)
+		if (prot_atoi1(1, argv) == 0)
 			return (0);
 	}
 	if (argv[0] != '-' && len == 10)
 	{
-		if (protection3(0, argv) == 0)
+		if (prot_atoi1(0, argv) == 0)
 			return (0);
 	}
 	return (1);
 }
 
-int	protection1(int argc, char **argv, int cnt, int c)
+int	prot_chars(int argc, char **argv, int cnt, int c)
 {
 	while (cnt < argc)
 	{
@@ -79,10 +83,7 @@ int	protection1(int argc, char **argv, int cnt, int c)
 			{
 			}
 			else if (ft_isdigit(*(argv[cnt] + c)) == 0)
-			{
-				ft_printf("Error\n");
 				return (0);
-			}
 			c++;
 		}
 		cnt++;
@@ -98,16 +99,16 @@ int	protection(int argc, char **argv, t_data *data)
 		ft_printf("Error\n");
 		return (0);
 	}
-	if (protection1(argc, argv, 1, 0) == 0)
+	if (prot_chars(argc, argv, 1, 0) == 0)
 	{
-		ft_printf("Errorn");
+		ft_printf("Error");
 		return (0);
 	}
-	if (protection5(data, argv, argc, 1) == 0)
+	if (count_args(data, argv, argc, 1) == 0)
 		return (0);
-	if (protection4(data) == 0)
+	if (prot_max_size(data) == 0)
 		return (0);
-	if (protection6(data, argv, argc, 1) == 0)
+	if (prot_data(data, argv, argc, 1) == 0)
 	{
 		ft_printf("Error\n");
 		return (free(data->stack), 0);

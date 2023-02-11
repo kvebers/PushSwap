@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 18:02:36 by kvebers           #+#    #+#             */
-/*   Updated: 2023/02/10 13:37:29 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/02/11 19:39:55 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,15 @@ typedef struct data
 }	t_data;
 
 //protection.c
-int		protection4(t_data *data);
-int		protection3(int bonus, char *argv);
-int		protection2(char *argv);
-int		protection1(int argc, char **argv, int cnt, int c);
+int		prot_max_size(t_data *data);
+int		prot_atoi1(int bonus, char *argv);
+int		prot_atoi(char *argv);
+int		prot_chars(int argc, char **argv, int cnt, int c);
 int		protection(int argc, char **argv, t_data *data);
 //protection1.c
-int		protection5(t_data *data, char **argv, int argc, int cnt);
-int		protection6(t_data *data, char **argv, int argc, int cnt);
-int		protection8(t_data *data);
+int		count_args(t_data *data, char **argv, int argc, int cnt);
+int		prot_data(t_data *data, char **argv, int argc, int cnt);
+int		prot_sorted(t_data *data);
 //init_data.c
 int		init_data(t_data *data);
 int		init_medians(t_data *data);

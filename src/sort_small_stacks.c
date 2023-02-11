@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 17:17:23 by kvebers           #+#    #+#             */
-/*   Updated: 2023/02/10 16:04:40 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/02/11 22:01:39 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,32 @@ void	stack_size_2_handle(t_data *data)
 	sa(data);
 }
 
+void	check_if_1(t_data *data)
+{
+	int	cnt;
+	int	boolean;
+
+	boolean = 0;
+	cnt = data->stack1_start;
+	while (cnt < data->stack1_end)
+	{
+		if (data->stack1[cnt] == 1)
+			boolean = 1;
+		cnt++;
+	}
+	if (boolean == 0)
+		return ;
+	cnt = data->stack1_start;
+	while (cnt < data->stack1_end)
+	{
+		data->stack1[cnt] = data->stack1[cnt] + 1;
+		cnt++;
+	}
+}
+
 void	stack_size_3_handle(t_data *data)
 {
+	check_if_1(data);
 	if (data->stack1[data->stack1_start] == 3
 		&& data->stack1[data->stack1_start + 1] == 2)
 	{

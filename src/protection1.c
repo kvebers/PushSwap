@@ -6,13 +6,34 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:33:53 by kvebers           #+#    #+#             */
-/*   Updated: 2023/02/10 15:51:27 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/02/11 20:53:50 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
 
-int	protection5(t_data *data, char **argv, int argc, int cnt)
+int	prot_blanks(char *argv)
+{
+	int	cnt;
+	int	cnt1;
+
+	cnt = 0;
+	cnt1 = 0;
+	while (cnt1 < 10)
+	{
+		if (ft_strchr(argv, cnt1 + '0') == NULL)
+		{
+			cnt++;
+		}
+		cnt1++;
+	}
+	if (cnt == 10)
+		return (0);
+	else
+		return (1);
+}
+
+int	count_args(t_data *data, char **argv, int argc, int cnt)
 {
 	int		cnt1;
 	char	**dest;
@@ -40,7 +61,7 @@ int	protection5(t_data *data, char **argv, int argc, int cnt)
 	return (1);
 }
 
-int	protection7(t_data *data, char *argv, int cnt)
+int	prot_data1(t_data *data, char *argv, int cnt)
 {
 	char	**dest;
 	int		cnt1;
@@ -53,7 +74,7 @@ int	protection7(t_data *data, char *argv, int cnt)
 		return (0);
 	while (dest[cnt1] != NULL)
 	{
-		if (protection2(dest[cnt1]) == 1 && ret_val != 0)
+		if (prot_atoi(dest[cnt1]) == 1 && ret_val != 0)
 			ret_val = cnt1 + 1;
 		else
 			ret_val = 0;
@@ -65,7 +86,7 @@ int	protection7(t_data *data, char *argv, int cnt)
 	return (free(dest), ret_val);
 }
 
-int	protection6(t_data *data, char **argv, int argc, int cnt)
+int	prot_data(t_data *data, char **argv, int argc, int cnt)
 {
 	int	cnt1;
 	int	holder;
@@ -74,24 +95,27 @@ int	protection6(t_data *data, char **argv, int argc, int cnt)
 	data->stack = malloc(sizeof(int) * (data->argc + 1));
 	while (cnt < argc)
 	{
-		if (ft_strchr(argv[cnt], ' ') == NULL && protection2(argv[cnt]) == 1)
+		if (prot_blanks(argv[cnt]) == 1 && ft_strchr(argv[cnt], ' ') == NULL
+			&& prot_atoi(argv[cnt]) == 1)
 		{
 			data->stack[cnt1] = ft_atoi(argv[cnt]);
 			cnt1++;
 		}
-		else
+		else if (prot_blanks(argv[cnt]) == 1)
 		{
-			holder = protection7(data, argv[cnt], cnt1);
+			holder = prot_data1(data, argv[cnt], cnt1);
 			if (holder == 0)
 				return (0);
 			cnt1 = cnt1 + holder;
 		}
+		else
+			return (0);
 		cnt++;
 	}
 	return (1);
 }
 
-int	protection8(t_data *data)
+int	prot_sorted(t_data *data)
 {
 	int	cnt1;
 	int	cnt2;
