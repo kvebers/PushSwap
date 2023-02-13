@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 14:27:44 by kvebers           #+#    #+#             */
-/*   Updated: 2023/02/09 15:53:30 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/02/12 20:12:07 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	quick_sort_b(t_data *data, int median)
 		pa(data);
 		ra(data);
 	}
-	else if (data->stack2[data->stack2_start] >= median + data->argc / 8 - 1
+	else if (data->stack2[data->stack2_start] >= median + data->argc / 8
 		&& data->stack2[data->stack2_start] <= median + data->argc / 16 * 3)
 	{
 		pa(data);

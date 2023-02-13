@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:33:53 by kvebers           #+#    #+#             */
-/*   Updated: 2023/02/11 20:53:50 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/02/13 08:59:29 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,7 @@ int	prot_sorted(t_data *data)
 		{
 			if (data->stack[cnt2] == data->stack[cnt1])
 			{
-				ft_printf("Error\n");
+				write(2, "Error\n", 6);
 				return (0);
 			}
 			cnt2++;

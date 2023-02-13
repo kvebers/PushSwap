@@ -6,31 +6,31 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:08:29 by kvebers           #+#    #+#             */
-/*   Updated: 2023/01/20 12:09:42 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/02/13 09:04:46 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
 
-void	ft_print_stacks(t_data *data)
-{
-	int	cnt;
+// void	ft_print_stacks(t_data *data)
+// {
+// 	int	cnt;
 
-	cnt = 0;
-	while (cnt < data->malloc_len)
-	{
-		ft_printf("%i,", data->stack1[cnt]);
-		cnt++;
-	}
-	ft_printf(" ");
-	cnt = 0;
-	while (cnt < data->malloc_len)
-	{
-		ft_printf("%i,", data->stack2[cnt]);
-		cnt++;
-	}
-	ft_printf("\n");
-}
+// 	cnt = 0;
+// 	while (cnt < data->malloc_len)
+// 	{
+// 		ft_printf("%i,", data->stack1[cnt]);
+// 		cnt++;
+// 	}
+// 	ft_printf(" ");
+// 	cnt = 0;
+// 	while (cnt < data->malloc_len)
+// 	{
+// 		ft_printf("%i,", data->stack2[cnt]);
+// 		cnt++;
+// 	}
+// 	ft_printf("\n");
+// }
 
 int	check_sort(t_data *data)
 {

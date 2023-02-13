@@ -6,7 +6,7 @@
 #    By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/09 15:18:33 by kvebers           #+#    #+#              #
-#    Updated: 2023/02/09 18:15:25 by kvebers          ###   ########.fr        #
+#    Updated: 2023/02/12 10:34:25 by kvebers          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,5 @@ re: fclean all
 
 vis:
 	$(shell push_swap_visualizer/build/bin/visualizer)
-
-
 
 .PHONY: clean fclean all re vis
