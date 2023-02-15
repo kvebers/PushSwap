@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:25:13 by kvebers           #+#    #+#             */
-/*   Updated: 2023/02/07 16:54:35 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/02/15 12:17:40 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	start_sort(t_data *data)
 		rra(data);
 	loop_sort(data, data->median);
 	loop_sort(data, data->median1);
-	while (data->stack2_len >= data->argc / 8 - 1)
+	while (data->stack2_len >= data->argc / 8)
 		quick_sort_b2(data, 1);
 	while (data->stack1[data->stack1_end - 1] < data->median2 + data->argc / 8)
 		rra(data);

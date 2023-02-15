@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 18:34:15 by kvebers           #+#    #+#             */
-/*   Updated: 2023/02/13 09:30:44 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/02/15 13:15:27 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,9 @@ int	prot_atoi(char *argv)
 	ptr = ft_strchr(argv, '+');
 	if (ptr != NULL && *(ptr + 1) == '+' )
 		return (0);
+	ptr = ft_strchr(argv, '-');
+	if (ptr != NULL && *(ptr + 1) == '-' )
+		return (0);
 	len = ft_strlen(argv);
 	if (argv[0] == '-' && len > 11)
 		return (0);
@@ -84,7 +87,7 @@ int	prot_chars(int argc, char **argv, int cnt, int c)
 			c = 0;
 		while (*(argv[cnt] + c) != '\0')
 		{
-			if (*(argv[cnt] + c) == ' ' || *(argv[cnt]) == '-'
+			if (*(argv[cnt] + c) == ' ' || *(argv[cnt] + c) == '-'
 				|| *(argv[cnt] + c) == '+')
 			{
 			}
