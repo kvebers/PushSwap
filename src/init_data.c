@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:54:06 by kvebers           #+#    #+#             */
-/*   Updated: 2023/02/13 09:05:15 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/02/17 13:38:30 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	transform_stack(t_data *data)
 	{
 		cnt1 = -1;
 		sum = 0;
-		while (cnt1++ < data->argc)
+		while (++cnt1 < data->argc)
 		{
 			if (data->stack[cnt] >= data->stack[cnt1])
 				sum++;
