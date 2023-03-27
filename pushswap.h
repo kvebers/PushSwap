@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 18:02:36 by kvebers           #+#    #+#             */
-/*   Updated: 2023/02/11 19:39:55 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/03/27 17:22:17 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,4 +91,5 @@ void	decision(t_data *data, int temp1);
 void	stack_size_2_handle(t_data *data);
 void	stack_size_3_handle(t_data *data);
 void	stack_size_45_handle(t_data *data);
+void	start_sort5(t_data *data);
 #endif

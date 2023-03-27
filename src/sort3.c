@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 16:43:26 by kvebers           #+#    #+#             */
-/*   Updated: 2023/02/10 16:15:14 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/03/27 18:15:23 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,36 @@ void	start_sort2(t_data *data)
 			pb(data);
 			cnt++;
 		}
+		else
+			ra(data);
+	}
+	while (data->stack2_len > 0)
+		push_to_sort(data);
+}
+
+void	start_sort5(t_data *data)
+{
+	int	median;
+	int	multiplayer;
+	int	border;
+
+	border = ft_sqrt(data->stack1_len) + 3;
+	multiplayer = 1;
+	median = data->stack1_len / 2;
+	while (data->stack1_len > 0)
+	{
+		if (border * 2 * multiplayer < data->stack2_len)
+			multiplayer++;
+		if (data->stack1[data->stack1_start] >= median - border * multiplayer
+			&& data->stack1[data->stack1_start] <= median)
+		{
+			pb(data);
+			rb(data);
+		}
+		else if (data->stack1[data->stack1_start]
+			<= median + border * multiplayer
+			&& data->stack1[data->stack1_start] > median)
+			pb(data);
 		else
 			ra(data);
 	}
