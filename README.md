@@ -6,7 +6,7 @@ PushSwap is an intresting example of a sorting algorithm, it is not efficient at
 
 So let's look into a mathematics based approach of estimation for the total number of opperations of the Push_Swap alpgorithm.
 
-Basics of Push_Swap Algorithm
+#Basics of Push_Swap Algorithm
 
 V.1 The rules
 
@@ -54,4 +54,6 @@ rrb (reverse rotate b): Shift down all elements of stack b by 1.
 The last element becomes the first one.
 
 rrr : rra and rrb at the same time.
+
+#Estimation of the opeations.
 
