@@ -112,7 +112,7 @@ else ()
 }
 update border and repeat
 
-#### X = Stack size
+#### X = Ammount of Stacks
 #### Y = Opperations
 #### n = Ammount of elements
 
@@ -146,9 +146,15 @@ So, for this we need to understand how many stack do we have, but that we descib
 
 #### So in case of n = 500 and x = 500, it would be 500 opperations
 #### In case of n = 500 and x = 250 we can not predict the precise ammount of (opperations), it could be 500 or it could be rb pa rrb pb or (2000 opperations) lets take an average of 1000 (opperations)
-#### For n = 500 and x = 125 it would be from 500 (opperations) to (rb rb rb pa rrb rrb rrb pa rb pa rrb  pa) 6000 opperations worst case scenario
+#### For n = 500 and x = 125 it would be from 500 (opperations) to (rb rb pa rrb rrb pa rb pa rrb  pa) 1250 opperations worst case scenario
 so we can make a formula that estimates lowest and maxiumum and medium ammount of opperations
-#### For X ammount of stack we could say the Worst case scenario is 
+#### For X ammount of stack we could say the Worst case scenario is 2 * (1 + x)* n = y 
+Worst Case scenario 
+<img width="2560" alt="Screen Shot 2023-05-02 at 7 34 13 PM" src="https://user-images.githubusercontent.com/49612380/235741566-abee1daa-f6e1-4c78-8ece-8ee83f8bae5a.png">
+
+#### We can also estimate the avarage scenario (n + 2 * (1 + x) * n)/2 = y
+Worst + Avarage Case Comparison
+<img width="2560" alt="Screen Shot 2023-05-02 at 7 34 15 PM" src="https://user-images.githubusercontent.com/49612380/235741630-28e160e8-1dd7-4425-b360-70e0617552c3.png">
 
 
 
