@@ -150,7 +150,7 @@ So, for this we need to understand how many stack do we have, but that we descib
 so we can make a formula that estimates lowest and maxiumum and medium ammount of opperations
 #### For X ammount of stack we could say the Worst case scenario is 2 * (1 + x)* n = y 
 Worst Case scenario 
-<img width="2560" alt="Screen Shot 2023-05-02 at 7 34 13 PM" src="https://user-images.githubusercontent.com/49612380/235741566-abee1daa-f6e1-4c78-8ece-8ee83f8bae5a.png">
+<img width="2560" alt="Screen Shot 2023-05-02 at 7 33 21 PM" src="https://user-images.githubusercontent.com/49612380/235742281-6d624393-b640-434e-b427-fc9bfd4023e6.png">
 
 #### We can also estimate the Average scenario (n + 2 * (1 + x) * n)/2 = y
 Worst + Average Case Comparison
