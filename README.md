@@ -160,8 +160,8 @@ Now we combine both of the formulas to find out the BEST, the WORST and the MEDI
 Formulas before combining
 <img width="2560" alt="Screen Shot 2023-05-02 at 7 44 24 PM" src="https://user-images.githubusercontent.com/49612380/235743833-e95b19f1-8a85-4e68-99d5-afc59a029643.png">
 #### BEST Case (Not sorted) 500 + n * n/2 + (n/x + n)/2 * x/2
-#### WORST Case (Not sorted) n/2 + (n/x + n)/2 * x/2 + 2 * (1 + x)* n
-#### Median Case (Not sorted) n/2 + (n/x + n)/2 * x/2 + (n + 2 * (1 + x) * n)/2
+#### WORST Case (Not sorted) n/2 + (n/x + n)/2 * x/2 + 2 * (1 + n/x)* n
+#### Median Case (Not sorted) n/2 + (n/x + n)/2 * x/2 + (n + 2 * (1 + n/x) * n)/2
 
 Combined formulas:
 <img width="2560" alt="Screen Shot 2023-05-02 at 7 45 49 PM 1" src="https://user-images.githubusercontent.com/49612380/235744289-e9105f98-2ed9-44e7-9d52-883975f4f2ef.png">
@@ -171,7 +171,15 @@ As we can see the Median The expected Median Value is 8000 Opperations for 500 a
 ### Further optimisation
 So right now the push to A from B side is not optimised, how can we optimise it further.
 
-We can push 2 elements to B Side at the same time, woho 
+We can push 2 elements to B Side at the same time, woho, exciting, lets look at the new formula for the WORST and MEDIAN cases, BEST case ain't realistic lets be honest.
+#### So now the worst case would look like this pa rb pa sa rrb pa rrb sa for x = 125 or if we express it (1 + n/x) * n + n/2
+Lets now plug in the slightly optimised Push to B in formula and we get
+
+#### WORST Case (Not sorted) n/2 + (n/x + n)/2 * x/2 + (1 + n/x) * n + n/2
+#### Median Case (Not sorted) n/2 + (n/x + n)/2 * x/2 + (n + (1 + n/x) * n + n/2)/2
+
+
+
 
 
 
