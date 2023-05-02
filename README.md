@@ -57,6 +57,8 @@ rrr : rra and rrb at the same time.
 
 # Estimation of the opeations.
 
+## Lets start with the simple algorithm
+
 To estimate the opperations, we need to understand the main thing, Pushing to stack B takes X ammount of opperations, bushing to stack A takes Y ammount of opperations.
 
 Now we can make a graph:
@@ -66,6 +68,9 @@ So The Graph in Uppwards direction would describe the opperations that it takes 
 So The Graph in Downwards direction would describe the opperations that it takes to push stack with 20 elements in direction B
 
 As we can see the most optimal place to get the least ammount of opperations, is the middle ground, so most algorithms should target for finding this middle ground.
+
+
+### Pushing to stack B
 
 Lets now calculate opperations it takes to Push A Stack with 500 elements to Stack B
 
@@ -107,6 +112,10 @@ else ()
 }
 update border and repeat
 
+#### X = Stack size
+#### Y = Opperations
+#### n = Ammount of elements
+
 #### AS we can see we gained 941/1125 = 83% so we reduced the ammount of opperations for pushing multiple smaller stack by 17 %
 
 if there is 6 stacks
@@ -127,4 +136,19 @@ Second method
 Comparison if efficieny between 2 approaches
 <img width="2560" alt="Screen Shot 2023-05-02 at 6 37 43 PM" src="https://user-images.githubusercontent.com/49612380/235729487-917503de-3930-4c03-bfe2-aa5db37e92da.png">
 
- 
+ Now lets add an algorithm for pushing back from Stack B
+
+### Pushing to Stack A
+
+For now lets just push from stack B to Stack A the top element.
+
+So, for this we need to understand how many stack do we have, but that we descibe with the given X
+
+#### So in case of n = 500 and x = 500, it would be 500 opperations
+#### In case of n = 500 and x = 250 we can not predict the precise ammount of (opperations), it could be 500 or it could be rb pa rrb pb or (2000 opperations) lets take an average of 1000 (opperations)
+#### For n = 500 and x = 125 it would be from 500 (opperations) to (rb rb rb pa rrb rrb rrb pa rb pa rrb  pa) 6000 opperations worst case scenario
+so we can make a formula that estimates lowest and maxiumum and medium ammount of opperations
+#### For X ammount of stack we could say the Worst case scenario is 
+
+
+
