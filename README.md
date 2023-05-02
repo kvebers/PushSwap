@@ -178,8 +178,12 @@ Lets now plug in the slightly optimised Push to B in formula and we get
 #### WORST Case (Not sorted) n/2 + (n/x + n)/2 * x/2 + (1 + n/x) * n + n/2
 #### Median Case (Not sorted) n/2 + (n/x + n)/2 * x/2 + (n + (1 + n/x) * n + n/2)/2
 
+<img width="2560" alt="Screen Shot 2023-05-02 at 7 45 48 PM" src="https://user-images.githubusercontent.com/49612380/235759093-550a831f-16fd-47b2-adaa-549e63ce4287.png">
+<img width="2560" alt="Screen Shot 2023-05-02 at 7 45 49 PM 1" src="https://user-images.githubusercontent.com/49612380/235759126-3e3e358c-4b52-431d-b101-ef4f636a3d3e.png">
 
+Now we can see that opperation ammount for median is 6400 and operation ammount for worst case scenario is 8700, for N = 500
 
+We can even further optimise it by
 
 
 
