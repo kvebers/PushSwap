@@ -115,13 +115,13 @@ if there is 6 stacks
 #### 500 + 417 + 333 + 250 + 83 + 166 = 83 * (1 + 6)/2 * 6 = 1743 (opperations) to push to stackB 6 smaller devision, with method 1
 we can see that we can describe the formula with a Arithmetical Progression Times multiplayer
 
-#### Secound Method
+#### Second Method
 #### 500 + 83 + 333 + 83 + 166 + 83 = 3 * 83 + 3 * (166 + 500)/2 * 3 = 1497 (opperations) 
 
 First method:
 So we can express the formula with expression
 #### n/x * (1+x)/2 * x = y to push to stackB
-Secound method 
+Second method 
 #### n/2 + (n/x + n)/2 * x/2 = y to push to stackB
 
 Comparison if efficieny between 2 approaches
