@@ -57,3 +57,74 @@ rrr : rra and rrb at the same time.
 
 # Estimation of the opeations.
 
+To estimate the opperations, we need to understand the main thing, Pushing to stack B takes X ammount of opperations, bushing to stack A takes Y ammount of opperations.
+
+Now we can make a graph:
+
+<img width="309" alt="Screen Shot 2023-05-02 at 5 45 16 PM" src="https://user-images.githubusercontent.com/49612380/235718809-7ea5c4e5-ef84-4793-b8d5-e57573547e45.png">
+So The Graph in Uppwards direction would describe the opperations that it takes to push stack with 20 elements in direction A
+So The Graph in Downwards direction would describe the opperations that it takes to push stack with 20 elements in direction B
+
+As we can see the most optimal place to get the least ammount of opperations, is the middle ground, so most algorithms should target for finding this middle ground.
+
+Lets now calculate opperations it takes to Push A Stack with 500 elements to Stack B
+
+It takes 500 opperations, if we do not manipulate it in any way or form, but it is not useful for us.
+So we can manipulate the stack to get some advantage in the sorting process. 
+
+One of the simplest manipulates is sorting it into small segments:
+
+So what we do is we push every element that is bigger then median to the stack b
+
+We gain 2 stack with 250 elements, one of them is in stack A, one of them is in stack B, if we push it again we gain 500 elements in stack B, in 750 operations.
+
+Now can we optimise this process.
+
+#### YES 
+
+So we push all elements to stack b, but depending from the median, we add an additional opperation rb, to make to stacks, without a struggle.
+
+#### But you might wonder, it is the same ammount of opperations 750, how it is more efficient.
+
+The thing is 2 stack, is still quiet big segment width, for sorting back algorithm and it will make the push B very inefficient, so we need to make more and smaller stacks.
+
+Now if we use the first method to make 4 stack we would use:
+
+#### 750 + 375 = 1125 (opperations) first method
+
+Now if we use the secound method in combination with the first method, we gain 
+
+#### 500 + 125 + 250 + 66 = 941 (opperations) 2nd method + 1 method 
+
+while (len(stacka) == n/2)
+if (n / 2 > element >  n / 4 )
+  pb()
+  rb()
+else if (n / 4 > element > n)
+  pb()
+else ()
+  ra()
+}
+update border and repeat
+
+#### AS we can see we gained 941/1125 = 83% so we reduced the ammount of opperations for pushing multiple smaller stack by 17 %
+
+if there is 6 stacks
+
+#### First method
+#### 500 + 417 + 333 + 250 + 83 + 166 = 83 * (1 + 6)/2 * 6 = 1743 (opperations) to push to stackB 6 smaller devision, with method 1
+we can see that we can describe the formula with a Arithmetical Progression Times multiplayer
+
+#### Secound Method
+#### 500 + 83 + 333 + 83 + 166 + 83 = 3 * 83 + 3 * (166 + 500)/2 * 3 = 1497 (opperations) 
+
+First method:
+So we can express the formula with expression
+#### n/x * (1+x)/2 * x = y to push to stackB
+Secound method 
+#### n/2 + (n/x + n)/2 * x/2 = y to push to stackB
+
+Comparison if efficieny between 2 approaches
+<img width="2560" alt="Screen Shot 2023-05-02 at 6 37 43 PM" src="https://user-images.githubusercontent.com/49612380/235729487-917503de-3930-4c03-bfe2-aa5db37e92da.png">
+
+ 
