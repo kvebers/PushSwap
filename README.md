@@ -152,8 +152,8 @@ so we can make a formula that estimates lowest and maxiumum and medium ammount o
 Worst Case scenario 
 <img width="2560" alt="Screen Shot 2023-05-02 at 7 34 13 PM" src="https://user-images.githubusercontent.com/49612380/235741566-abee1daa-f6e1-4c78-8ece-8ee83f8bae5a.png">
 
-#### We can also estimate the avarage scenario (n + 2 * (1 + x) * n)/2 = y
-Worst + Avarage Case Comparison
+#### We can also estimate the Average scenario (n + 2 * (1 + x) * n)/2 = y
+Worst + Average Case Comparison
 <img width="2560" alt="Screen Shot 2023-05-02 at 7 34 15 PM" src="https://user-images.githubusercontent.com/49612380/235741630-28e160e8-1dd7-4425-b360-70e0617552c3.png">
 
 
