@@ -156,5 +156,23 @@ Worst Case scenario
 Worst + Average Case Comparison
 <img width="2560" alt="Screen Shot 2023-05-02 at 7 34 15 PM" src="https://user-images.githubusercontent.com/49612380/235741630-28e160e8-1dd7-4425-b360-70e0617552c3.png">
 
+Now we combine both of the formulas to find out the BEST, the WORST and the MEDIAN Scenario
+Formulas before combining
+<img width="2560" alt="Screen Shot 2023-05-02 at 7 44 24 PM" src="https://user-images.githubusercontent.com/49612380/235743833-e95b19f1-8a85-4e68-99d5-afc59a029643.png">
+#### BEST Case (Not sorted) 500 + n * n/2 + (n/x + n)/2 * x/2
+#### WORST Case (Not sorted) n/2 + (n/x + n)/2 * x/2 + 2 * (1 + x)* n
+#### Median Case (Not sorted) n/2 + (n/x + n)/2 * x/2 + (n + 2 * (1 + x) * n)/2
+
+Combined formulas:
+<img width="2560" alt="Screen Shot 2023-05-02 at 7 45 49 PM 1" src="https://user-images.githubusercontent.com/49612380/235744289-e9105f98-2ed9-44e7-9d52-883975f4f2ef.png">
+
+As we can see the Median The expected Median Value is 8000 Opperations for 500 and Worst case scenario is 12000 Operations. We need to optimise further how to do so?
+
+### Further optimisation
+So right now the push to A from B side is not optimised, how can we optimise it further.
+
+We can push 2 elements to B Side at the same time, woho 
+
+
 
 
