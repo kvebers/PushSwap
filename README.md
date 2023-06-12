@@ -1,14 +1,12 @@
-# PushSwap
-
+#PushSwap
 Mathematics Behind PushSwap Algorithms
 
-PushSwap is an intresting example of a sorting algorithm, it is not efficient at all, however it is perfect example of problem solving skills you can apply for creationg of sorting algorithms.
+PushSwap is an interesting example of a sorting algorithm. It is not efficient at all; however, it is a perfect example of problem-solving skills you can apply for creating sorting algorithms.
 
-So let's look into a mathematics based approach of estimation for the total number of opperations of the Push_Swap alpgorithm.
+So let's look into a mathematics-based approach to estimating the total number of operations of the PushSwap algorithm.
 
-# Basics of Push_Swap Algorithm
-
-V.1 The rules
+#Basics of PushSwap Algorithm
+Version 1: The rules
 
 • You have 2 stacks named a and b.
 
@@ -19,19 +17,15 @@ which cannot be duplicated.
 
 ◦ The stack b is empty.
 
-
-• The goal is to sort in ascending order numbers into stack a. To do so you have the
-
-following operations at your disposal:
+• The goal is to sort the numbers in stack a in ascending order. To do so, you have the following operations at your disposal:
 
 sa (swap a): Swap the first 2 elements at the top of stack a.
 Do nothing if there is only one or no elements.
 
 sb (swap b): Swap the first 2 elements at the top of stack b.
-
 Do nothing if there is only one or no elements.
 
-ss : sa and sb at the same time.
+ss: sa and sb at the same time.
 
 pa (push a): Take the first element at the top of b and put it at the top of a.
 Do nothing if b is empty.
@@ -45,7 +39,7 @@ The first element becomes the last one.
 rb (rotate b): Shift up all elements of stack b by 1.
 The first element becomes the last one.
 
-rr : ra and rb at the same time.
+rr: ra and rb at the same time.
 
 rra (reverse rotate a): Shift down all elements of stack a by 1.
 The last element becomes the first one.
@@ -55,49 +49,40 @@ The last element becomes the first one.
 
 rrr : rra and rrb at the same time.
 
-# Estimation of the opeations.
+#To estimate the operations, we need to understand the main idea: Pushing to stack B takes X amount of operations, pushing to stack A takes Y amount of operations.
 
-## Lets start with the simple algorithm
-
-To estimate the opperations, we need to understand the main thing, Pushing to stack B takes X ammount of opperations, bushing to stack A takes Y ammount of opperations.
-
-Now we can make a graph:
+##Now we can create a graph:
 
 <img width="309" alt="Screen Shot 2023-05-02 at 5 45 16 PM" src="https://user-images.githubusercontent.com/49612380/235718809-7ea5c4e5-ef84-4793-b8d5-e57573547e45.png">
 So The Graph in Uppwards direction would describe the opperations that it takes to push stack with 20 elements in direction A
 So The Graph in Downwards direction would describe the opperations that it takes to push stack with 20 elements in direction B
 
-As we can see the most optimal place to get the least ammount of opperations, is the middle ground, so most algorithms should target for finding this middle ground.
+As we can see, the most optimal place to achieve the least amount of operations is the middle ground. Therefore, most algorithms should aim to find this middle ground.
 
+### Pushing to Stack B
+Let's now calculate the operations required to push a stack A with 500 elements to stack B.
 
-### Pushing to stack B
+It takes 500 operations if we do not manipulate it in any way, but that is not useful for us. We want to manipulate the stack to gain an advantage in the sorting process.
 
-Lets now calculate opperations it takes to Push A Stack with 500 elements to Stack B
+One of the simplest manipulations is sorting it into small segments:
 
-It takes 500 opperations, if we do not manipulate it in any way or form, but it is not useful for us.
-So we can manipulate the stack to get some advantage in the sorting process. 
+We can push every element that is bigger than the median to stack B. By doing this, we end up with two stacks, each containing 250 elements. One stack is in stack A, and the other stack is in stack B. If we push it again, we will have 500 elements in stack B, which would require 750 operations.
 
-One of the simplest manipulates is sorting it into small segments:
-
-So what we do is we push every element that is bigger then median to the stack b
-
-We gain 2 stack with 250 elements, one of them is in stack A, one of them is in stack B, if we push it again we gain 500 elements in stack B, in 750 operations.
-
-Now can we optimise this process.
+Now, can we optimize this process?
 
 #### YES 
 
-So we push all elements to stack b, but depending from the median, we add an additional opperation rb, to make to stacks, without a struggle.
+#### So we push all elements to stack B, but depending on the median, we add an additional operation rb to create two stacks without any struggle.
 
-#### But you might wonder, it is the same ammount of opperations 750, how it is more efficient.
+But you might wonder, it is the same amount of operations (750), so how is it more efficient?
 
-The thing is 2 stack, is still quiet big segment width, for sorting back algorithm and it will make the push B very inefficient, so we need to make more and smaller stacks.
+The thing is, having two stacks is still a quite big segment width for the sorting-back algorithm, and it will make the push B operation very inefficient. Therefore, we need to create more stacks, each with a smaller size.
 
-Now if we use the first method to make 4 stack we would use:
+Now, if we use the first method to create four stacks, we would use:
 
-#### 750 + 375 = 1125 (opperations) first method
+#### 750 + 375 = 1125 operations (first method)
 
-Now if we use the secound method in combination with the first method, we gain 
+The result of optimisation:
 
 #### 500 + 125 + 250 + 66 = 941 (opperations) 2nd method + 1 method 
 
