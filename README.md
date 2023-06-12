@@ -1,11 +1,11 @@
-#PushSwap
+# PushSwap
 Mathematics Behind PushSwap Algorithms
 
 PushSwap is an interesting example of a sorting algorithm. It is not efficient at all; however, it is a perfect example of problem-solving skills you can apply for creating sorting algorithms.
 
 So let's look into a mathematics-based approach to estimating the total number of operations of the PushSwap algorithm.
 
-#Basics of PushSwap Algorithm
+# Basics of PushSwap Algorithm
 Version 1: The rules
 
 • You have 2 stacks named a and b.
@@ -49,9 +49,9 @@ The last element becomes the first one.
 
 rrr : rra and rrb at the same time.
 
-#To estimate the operations, we need to understand the main idea: Pushing to stack B takes X amount of operations, pushing to stack A takes Y amount of operations.
+# To estimate the operations, we need to understand the main idea: Pushing to stack B takes X amount of operations, pushing to stack A takes Y amount of operations.
 
-##Now we can create a graph:
+## Now we can create a graph:
 
 <img width="309" alt="Screen Shot 2023-05-02 at 5 45 16 PM" src="https://user-images.githubusercontent.com/49612380/235718809-7ea5c4e5-ef84-4793-b8d5-e57573547e45.png">
 So The Graph in Uppwards direction would describe the opperations that it takes to push stack with 20 elements in direction A
